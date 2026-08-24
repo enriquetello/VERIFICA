@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VERIFICA | Antes de compartir, verifica</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #172033;
+        }
+
+        /* ===== BARRA DE NAVEGACIÓN ===== */
+
+        nav {
+            height: 70px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+            border-bottom: 1px solid #e8ebf2;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #2563eb;
+            letter-spacing: 1px;
+        }
+
+        .menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #4b5563;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .menu a:hover {
+            color: #2563eb;
+        }
+
+
+        /* ===== HERO ===== */
+
+        .hero {
+            background: linear-gradient(135deg, #2563eb, #4f46e5);
+            color: white;
+            text-align: center;
+            padding: 90px 20px 100px;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+
+        .hero h2 {
+            font-size: 24px;
+            font-weight: normal;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+            font-size: 17px;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+
+        /* ===== VERIFICADOR ===== */
+
+        .verificador {
+            max-width: 850px;
+            margin: -55px auto 70px;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            position: relative;
+        }
+
+        .verificador h2 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .verificador p {
+            text-align: center;
+            color: #6b7280;
+            margin-bottom: 25px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 18px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            resize: vertical;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            outline: none;
+        }
+
+        textarea:focus {
+            border-color: #2563eb;
+        }
+
+        .boton {
+            display: block;
+            margin: 20px auto 0;
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .boton:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+
+        /* ===== SECCIONES ===== */
+
+        section {
+            padding: 70px 8%;
+        }
+
+        .titulo {
+            text-align: center;
+            font-size: 34px;
+            margin-bottom: 12px;
+        }
+
+        .subtitulo {
+            text-align: center;
+            color: #6b7280;
+            max-width: 650px;
+            margin: auto auto 40px;
+            line-height: 1.6;
+        }
+
+
+        /* ===== PASOS ===== */
+
+        .pasos {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .paso {
+            background: white;
+            padding: 25px 18px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #e8ebf2;
+            transition: 0.2s;
+        }
+
+        .paso:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .numero {
+            width: 45px;
+            height: 45px;
+            background: #e8efff;
+            color: #2563eb;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .paso h3 {
+            margin-bottom: 10px;
+            font-size: 17px;
+        }
+
+        .paso p {
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+
+        /* ===== ESTADÍSTICAS ===== */
+
+        .estadisticas {
+            background: #172033;
+            color: white;
+            text-align: center;
+        }
+
+        .estadisticas .titulo {
+            color: white;
+        }
+
+        .estadisticas .subtitulo {
+            color: #cbd5e1;
+        }
+
+        .numeros {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            margin-top: 40px;
+        }
+
+        .numero-grande {
+            font-size: 42px;
+            font-weight: bold;
+            color: #60a5fa;
+        }
+
+        .numero-texto {
+            color: #cbd5e1;
+            margin-top: 8px;
+        }
+
+
+        /* ===== CONSEJO ===== */
+
+        .consejo {
+            max-width: 900px;
+            margin: auto;
+            background: #eff6ff;
+            border-left: 5px solid #2563eb;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .consejo h3 {
+            color: #1d4ed8;
+            margin-bottom: 10px;
+        }
+
+        .consejo p {
+            color: #374151;
+            line-height: 1.6;
+        }
+
+
+        /* ===== FOOTER ===== */
+
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+        }
+
+
+        /* ===== CELULARES ===== */
+
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 0 5%;
+            }
+
+            .menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero h2 {
+                font-size: 20px;
+            }
+
+            .verificador {
+                margin: -40px 20px 50px;
+                padding: 25px;
+            }
+
+            .pasos {
+                grid-template-columns: 1fr;
+            }
+
+            .numeros {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            section {
+                padding: 50px 6%;
+            }
+        }
+
+    .resultado-box {
+    margin-top: 25px;
+    padding: 25px;
+    background: #fff7ed;
+    border: 2px solid #f59e0b;
+    border-radius: 15px;
+    text-align: left;
+}
+
+.resultado-box h3 {
+    color: #b45309;
+    margin-bottom: 10px;
+}
+
+.resultado-box p {
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+    <!-- NAVEGACIÓN -->
+
+    <nav>
+
+        <div class="logo">
+            VERIFICA
+        </div>
+
+        <div class="menu">
+            <a href="#verificar">Verificar</a>
+            <a href="#como">Cómo funciona</a>
+            <a href="#impacto">Nuestro impacto</a>
+        </div>
+
+    </nav>
+
+
+    <!-- PRESENTACIÓN -->
+
+    <div class="hero">
+
+        <h1>VERIFICA</h1>
+
+        <h2>Antes de compartir, verifica.</h2>
+
+        <p>
+            Una herramienta creada para ayudarte a analizar
+            la información que encuentras en redes sociales
+            y desarrollar hábitos digitales responsables.
+        </p>
+
+    </div>
+
+
+    <!-- VERIFICADOR -->
+
+    <div class="verificador" id="verificar">
+
+        <h2>🔎 ¿Encontraste algo sospechoso?</h2>
+
+        <p>
+            Introduce una afirmación, noticia o información
+            que hayas encontrado en Internet.
+        </p>
+
+        <textarea
+    placeholder="Pega aquí la información que quieres verificar..."></textarea>
+
+<div id="resultado"></div>
+
+        <button class="boton" onclick="verificarInformacion()">
+            🔍 VERIFICAR INFORMACIÓN
+        </button>
+
+    </div>
+
+
+    <!-- CÓMO VERIFICAR -->
+
+    <section id="como">
+
+        <h2 class="titulo">
+            Aprende a verificar
+        </h2>
+
+        <p class="subtitulo">
+            Antes de creer o compartir una información,
+            sigue estos cinco pasos.
+        </p>
+
+
+        <div class="pasos">
+
+            <div class="paso">
+
+                <div class="numero">1</div>
+
+                <h3>Revisa la fuente</h3>
+
+                <p>
+                    Identifica quién publicó la información
+                    y si es una fuente confiable.
+                </p>
+
+            </div>
+
+
+            <div class="paso">
+
+                <div class="numero">2</div>
+
+                <h3>Comprueba la fecha</h3>
+
+                <p>
+                    Una noticia antigua puede estar siendo
+                    presentada como si fuera actual.
+                </p>
+
+            </div>
+
+
+            <div class="paso">
+
+                <div class="numero">3</div>
+
+                <h3>Busca evidencia</h3>
+
+                <p>
+                    Comprueba si la información presenta
+                    datos, pruebas o fuentes verificables.
+                </p>
+
+            </div>
+
+
+            <div class="paso">
+
+                <div class="numero">4</div>
+
+                <h3>Compara</h3>
+
+                <p>
+                    Busca la misma información en otras
+                    fuentes confiables.
+                </p>
+
+            </div>
+
+
+            <div class="paso">
+
+                <div class="numero">5</div>
+
+                <h3>Piensa antes de compartir</h3>
+
+                <p>
+                    Si tienes dudas, detente y verifica
+                    antes de difundirla.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- IMPACTO -->
+
+    <section class="estadisticas" id="impacto">
+
+        <h2 class="titulo">
+            Nuestro impacto
+        </h2>
+
+        <p class="subtitulo">
+            Estas estadísticas nos ayudarán a conocer
+            el alcance de nuestro proyecto.
+        </p>
+
+
+        <div class="numeros">
+
+            <div>
+                <div class="numero-grande">0</div>
+                <div class="numero-texto">
+                    Visitas
+                </div>
+            </div>
+
+
+            <div>
+                <div class="numero-grande">0</div>
+                <div class="numero-texto">
+                    Verificaciones
+                </div>
+            </div>
+
+
+            <div>
+                <div class="numero-grande">0%</div>
+                <div class="numero-texto">
+                    Mejora observada
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONSEJO -->
+
+    <section>
+
+        <div class="consejo">
+
+            <h3>💡 Recuerda</h3>
+
+            <p>
+                Que una información aparezca muchas veces
+                en redes sociales no significa que sea verdadera.
+                Antes de compartirla, revisa su fuente,
+                comprueba la información y compara diferentes
+                fuentes confiables.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- PIE DE PÁGINA -->
+
+    <footer>
+
+        <p>
+            VERIFICA — Proyecto ciudadano contra la infodemia
+        </p>
+
+        <p>
+            Antes de compartir, verifica.
+        </p>
+
+    </footer>
+
+<script>
+
+function verificarInformacion() {
+
+    const resultado = document.getElementById("resultado");
+
+    resultado.innerHTML = `
+        <div class="resultado-box">
+            <h3>🟡 Necesita verificación</h3>
+
+            <p>
+                Esta información debe comprobarse antes de compartirla.
+            </p>
+
+            <p>
+                Revisa la fuente, la fecha y compara la información
+                con otras fuentes confiables.
+            </p>
+        </div>
+    `;
+
+}
+
+</script>
+
+</body>
+
+</html>

@@ -2,346 +2,1143 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>VERIFICA | Antes de compartir, verifica</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
+<title>VERIFICA | Antes de compartir, verifica</title>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<style>
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f5f7fb;
-            color: #172033;
-        }
+/* =========================================================
+   GENERAL
+========================================================= */
 
-        /* ===== BARRA DE NAVEGACIÓN ===== */
-
-        nav {
-            height: 70px;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 8%;
-            border-bottom: 1px solid #e8ebf2;
-        }
-
-        .logo {
-            font-size: 25px;
-            font-weight: bold;
-            color: #2563eb;
-            letter-spacing: 1px;
-        }
-
-        .menu {
-            display: flex;
-            gap: 30px;
-        }
-
-        .menu a {
-            text-decoration: none;
-            color: #4b5563;
-            font-size: 15px;
-            font-weight: 500;
-        }
-
-        .menu a:hover {
-            color: #2563eb;
-        }
-
-
-        /* ===== HERO ===== */
-
-        .hero {
-            background: linear-gradient(135deg, #2563eb, #4f46e5);
-            color: white;
-            text-align: center;
-            padding: 90px 20px 100px;
-        }
-
-        .hero h1 {
-            font-size: 58px;
-            margin-bottom: 12px;
-            letter-spacing: 2px;
-        }
-
-        .hero h2 {
-            font-size: 24px;
-            font-weight: normal;
-            margin-bottom: 18px;
-        }
-
-        .hero p {
-            max-width: 650px;
-            margin: auto;
-            font-size: 17px;
-            line-height: 1.6;
-            opacity: 0.95;
-        }
-
-
-        /* ===== VERIFICADOR ===== */
-
-        .verificador {
-            max-width: 850px;
-            margin: -55px auto 70px;
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-            position: relative;
-        }
-
-        .verificador h2 {
-            text-align: center;
-            margin-bottom: 10px;
-            font-size: 28px;
-        }
-
-        .verificador p {
-            text-align: center;
-            color: #6b7280;
-            margin-bottom: 25px;
-        }
-
-        textarea {
-            width: 100%;
-            height: 150px;
-            padding: 18px;
-            border: 2px solid #e5e7eb;
-            border-radius: 12px;
-            resize: vertical;
-            font-size: 16px;
-            font-family: Arial, sans-serif;
-            outline: none;
-        }
-
-        textarea:focus {
-            border-color: #2563eb;
-        }
-
-        .boton {
-            display: block;
-            margin: 20px auto 0;
-            background: #2563eb;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 10px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .boton:hover {
-            background: #1d4ed8;
-            transform: translateY(-2px);
-        }
-
-
-        /* ===== SECCIONES ===== */
-
-        section {
-            padding: 70px 8%;
-        }
-
-        .titulo {
-            text-align: center;
-            font-size: 34px;
-            margin-bottom: 12px;
-        }
-
-        .subtitulo {
-            text-align: center;
-            color: #6b7280;
-            max-width: 650px;
-            margin: auto auto 40px;
-            line-height: 1.6;
-        }
-
-
-        /* ===== PASOS ===== */
-
-        .pasos {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 20px;
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        .paso {
-            background: white;
-            padding: 25px 18px;
-            border-radius: 15px;
-            text-align: center;
-            border: 1px solid #e8ebf2;
-            transition: 0.2s;
-        }
-
-        .paso:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-        }
-
-        .numero {
-            width: 45px;
-            height: 45px;
-            background: #e8efff;
-            color: #2563eb;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px;
-            font-weight: bold;
-            font-size: 18px;
-        }
-
-        .paso h3 {
-            margin-bottom: 10px;
-            font-size: 17px;
-        }
-
-        .paso p {
-            color: #6b7280;
-            font-size: 14px;
-            line-height: 1.5;
-        }
-
-
-        /* ===== ESTADÍSTICAS ===== */
-
-        .estadisticas {
-            background: #172033;
-            color: white;
-            text-align: center;
-        }
-
-        .estadisticas .titulo {
-            color: white;
-        }
-
-        .estadisticas .subtitulo {
-            color: #cbd5e1;
-        }
-
-        .numeros {
-            display: flex;
-            justify-content: center;
-            gap: 80px;
-            margin-top: 40px;
-        }
-
-        .numero-grande {
-            font-size: 42px;
-            font-weight: bold;
-            color: #60a5fa;
-        }
-
-        .numero-texto {
-            color: #cbd5e1;
-            margin-top: 8px;
-        }
-
-
-        /* ===== CONSEJO ===== */
-
-        .consejo {
-            max-width: 900px;
-            margin: auto;
-            background: #eff6ff;
-            border-left: 5px solid #2563eb;
-            padding: 30px;
-            border-radius: 10px;
-        }
-
-        .consejo h3 {
-            color: #1d4ed8;
-            margin-bottom: 10px;
-        }
-
-        .consejo p {
-            color: #374151;
-            line-height: 1.6;
-        }
-
-
-        /* ===== FOOTER ===== */
-
-        footer {
-            background: #0f172a;
-            color: #94a3b8;
-            text-align: center;
-            padding: 30px;
-            font-size: 14px;
-        }
-
-
-        /* ===== CELULARES ===== */
-
-        @media (max-width: 800px) {
-
-            nav {
-                padding: 0 5%;
-            }
-
-            .menu {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 42px;
-            }
-
-            .hero h2 {
-                font-size: 20px;
-            }
-
-            .verificador {
-                margin: -40px 20px 50px;
-                padding: 25px;
-            }
-
-            .pasos {
-                grid-template-columns: 1fr;
-            }
-
-            .numeros {
-                flex-direction: column;
-                gap: 30px;
-            }
-
-            section {
-                padding: 50px 6%;
-            }
-        }
-
-    .resultado-box {
-    margin-top: 25px;
-    padding: 25px;
-    background: #fff7ed;
-    border: 2px solid #f59e0b;
-    border-radius: 15px;
-    text-align: left;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.resultado-box h3 {
-    color: #b45309;
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #142b91;
+    overflow-x: hidden;
+}
+
+button,
+textarea {
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+nav {
+    height: 78px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #edf0fa;
+}
+
+.logo {
+    font-size: 36px;
+    font-weight: 900;
+    letter-spacing: -2px;
+    color: #1734b9;
+}
+
+.logo::first-letter {
+    color: #18c8ef;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #142b91;
+    font-weight: 700;
+    font-size: 16px;
+    transition: .2s;
+}
+
+.menu a:hover {
+    color: #12bfe9;
+}
+
+.nav-button {
+    background: #2852f4;
+    color: white !important;
+    padding: 14px 27px;
+    border-radius: 30px;
+    box-shadow: 0 7px 18px rgba(40,82,244,.25);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 420px;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 10% 20%, #1476ff 0, transparent 20%),
+        radial-gradient(circle at 85% 10%, #1232bd 0, transparent 25%),
+        linear-gradient(135deg,#075cff,#0925b8 60%,#1748e9);
+    color: white;
+}
+
+.hero-content {
+    max-width: 1200px;
+    min-height: 420px;
+    margin: auto;
+    padding: 55px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 5;
+}
+
+.hero-text {
+    width: 52%;
+}
+
+.hero-title {
+    font-size: 74px;
+    line-height: .9;
+    font-weight: 900;
+    letter-spacing: -3px;
+    color: white;
+    margin-bottom: 12px;
+}
+
+.hero-title span {
+    color: #ffe51d;
+}
+
+.hero-subtitle {
+    font-size: 30px;
+    font-weight: 900;
+    color: #ffe51d;
+    margin-bottom: 17px;
+}
+
+.hero-description {
+    max-width: 570px;
+    font-size: 18px;
+    line-height: 1.45;
+    color: white;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 18px;
+    margin-top: 28px;
+}
+
+.hero-button {
+    display: inline-block;
+    text-decoration: none;
+    padding: 17px 28px;
+    border-radius: 35px;
+    font-weight: 800;
+    font-size: 16px;
+    transition: .25s;
+}
+
+.hero-button.primary {
+    background: #ffe21b;
+    color: #10268d;
+}
+
+.hero-button.secondary {
+    border: 2px solid white;
+    color: white;
+}
+
+.hero-button:hover {
+    transform: translateY(-4px);
+}
+
+
+/* Hero illustration */
+
+.hero-art {
+    width: 43%;
+    min-height: 310px;
+    position: relative;
+}
+
+.laptop {
+    position: absolute;
+    width: 330px;
+    height: 210px;
+    background: white;
+    border: 9px solid #b8c7ff;
+    border-radius: 18px;
+    right: 70px;
+    top: 45px;
+    transform: rotate(-7deg);
+    box-shadow: 0 20px 35px rgba(0,0,0,.25);
+}
+
+.laptop-screen {
+    position: absolute;
+    inset: 12px;
+    background: linear-gradient(145deg,#eaf0ff,#ffffff);
+    border-radius: 8px;
+}
+
+.screen-image {
+    width: 70px;
+    height: 45px;
+    background: #a8bcf7;
+    border-radius: 5px;
+    position: absolute;
+    top: 25px;
+    left: 22px;
+}
+
+.screen-line {
+    position: absolute;
+    height: 9px;
+    border-radius: 10px;
+    background: #a8bcf7;
+    left: 22px;
+}
+
+.line-one {
+    width: 130px;
+    top: 85px;
+}
+
+.line-two {
+    width: 95px;
+    top: 105px;
+}
+
+.line-three {
+    width: 145px;
+    top: 125px;
+}
+
+.laptop-base {
+    position: absolute;
+    width: 380px;
+    height: 25px;
+    background: #9eb3ed;
+    bottom: -27px;
+    left: -34px;
+    border-radius: 0 0 30px 30px;
+}
+
+.magnifying-glass {
+    position: absolute;
+    width: 125px;
+    height: 125px;
+    border: 18px solid #1646bb;
+    background: rgba(36,225,180,.45);
+    border-radius: 50%;
+    right: 35px;
+    top: 85px;
+    z-index: 5;
+}
+
+.magnifying-glass::after {
+    content: "";
+    position: absolute;
+    width: 75px;
+    height: 20px;
+    background: #1646bb;
+    border-radius: 20px;
+    transform: rotate(45deg);
+    right: -55px;
+    bottom: -30px;
+}
+
+.check {
+    position: absolute;
+    color: white;
+    font-size: 65px;
+    font-weight: 900;
+    left: 27px;
+    top: 17px;
+}
+
+
+/* Decorative speech bubbles */
+
+.speech {
+    position: absolute;
+    padding: 10px 18px;
+    border-radius: 18px;
+    font-size: 18px;
+    font-weight: 900;
+    z-index: 10;
+}
+
+.speech.real {
+    background: #ffe21b;
+    color: #10268d;
+    left: 10px;
+    top: 20px;
+    transform: rotate(-7deg);
+}
+
+.speech.fake {
+    background: #f94c8d;
+    color: white;
+    right: 0;
+    top: 40px;
+    transform: rotate(5deg);
+}
+
+.speech.chat {
+    background: white;
+    color: #1742c3;
+    right: 15px;
+    bottom: 35px;
+}
+
+
+/* Decorative shapes */
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: .8;
+}
+
+.shape-one {
+    width: 100px;
+    height: 100px;
+    background: #19dcb5;
+    right: -20px;
+    bottom: -40px;
+}
+
+.shape-two {
+    width: 90px;
+    height: 90px;
+    background: #0877ff;
+    left: -35px;
+    bottom: 25px;
+}
+
+
+/* =========================================================
+   THREE MAIN CARDS
+========================================================= */
+
+.feature-cards {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 28px 30px 35px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 22px;
+}
+
+.feature-card {
+    min-height: 170px;
+    border-radius: 22px;
+    padding: 27px;
+    position: relative;
+    overflow: hidden;
+    transition: .25s;
+    border: 1px solid rgba(0,0,0,.05);
+}
+
+.feature-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 30px rgba(20,43,145,.12);
+}
+
+.feature-card.green {
+    background: #edfffa;
+}
+
+.feature-card.purple {
+    background: #f4efff;
+}
+
+.feature-card.red {
+    background: #fff0f3;
+}
+
+.feature-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    margin-bottom: 12px;
+}
+
+.green .feature-icon {
+    background: #68e4c3;
+}
+
+.purple .feature-icon {
+    background: #c99cff;
+}
+
+.red .feature-icon {
+    background: #ff9096;
+}
+
+.feature-card h3 {
+    font-size: 21px;
+    margin-bottom: 6px;
+}
+
+.feature-card p {
+    color: #3762a5;
+    font-size: 14px;
+    max-width: 250px;
+}
+
+.card-arrow {
+    position: absolute;
+    right: 22px;
+    bottom: 20px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   DESTACADO
+========================================================= */
+
+.destacado {
+    background: #eaf9ff;
+    padding: 55px 7%;
+}
+
+.destacado-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    gap: 35px;
+    align-items: center;
+}
+
+.destacado-text .label {
+    display: inline-block;
+    background: #14cfc4;
+    color: #082c9c;
+    font-weight: 900;
+    padding: 5px 15px;
+    border-radius: 20px;
+    transform: rotate(-2deg);
+    margin-bottom: 12px;
+}
+
+.destacado-text h2 {
+    font-size: 40px;
+    line-height: 1.05;
+    margin-bottom: 14px;
+}
+
+.destacado-text p {
+    color: #3564a4;
+    font-size: 16px;
+}
+
+.article-card {
+    background: white;
+    border-radius: 24px;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    box-shadow: 0 12px 30px rgba(22,58,145,.09);
+}
+
+.article-image {
+    min-width: 280px;
+    height: 160px;
+    border-radius: 17px;
+    background: linear-gradient(135deg,#744cff,#d89cff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.fake-paper {
+    width: 150px;
+    height: 105px;
+    background: white;
+    transform: rotate(-6deg);
+    border-radius: 7px;
+    padding: 14px;
+    box-shadow: 0 8px 15px rgba(0,0,0,.15);
+}
+
+.fake-paper::before {
+    content: "FALSO";
+    display: block;
+    border: 5px solid #e53935;
+    color: #e53935;
+    font-size: 21px;
+    font-weight: 900;
+    text-align: center;
+    padding: 3px;
+    transform: rotate(-8deg);
+    margin-top: 25px;
+}
+
+.article-content .tag {
+    display: inline-block;
+    background: #eadcff;
+    color: #6b27d9;
+    padding: 6px 13px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 800;
     margin-bottom: 10px;
 }
 
-.resultado-box p {
-    color: #4b5563;
-    line-height: 1.6;
+.article-content h3 {
+    font-size: 20px;
     margin-bottom: 8px;
+}
+
+.article-content p {
+    color: #6075a5;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.article-link {
+    color: #1742c3;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   SECCIONES GENERALES
+========================================================= */
+
+.section {
+    padding: 85px 7%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 38px;
+    margin-bottom: 12px;
+    color: #1734b9;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #6075a5;
+    max-width: 700px;
+    margin: 0 auto 45px;
+}
+
+
+/* =========================================================
+   INFODEMIA
+========================================================= */
+
+.info-grid {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 22px;
+}
+
+.info-card {
+    padding: 32px;
+    border-radius: 22px;
+    background: white;
+    border: 2px solid #edf0fa;
+    transition: .25s;
+}
+
+.info-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(30,60,150,.08);
+}
+
+.info-card .emoji {
+    font-size: 38px;
+    margin-bottom: 17px;
+}
+
+.info-card h3 {
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.info-card p {
+    color: #6075a5;
+}
+
+
+/* =========================================================
+   SEÑALES
+========================================================= */
+
+.alert-section {
+    background: #f1f7ff;
+}
+
+.alert-grid {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 14px;
+}
+
+.alert-card {
+    background: white;
+    border-radius: 18px;
+    padding: 24px 15px;
+    text-align: center;
+    border: 1px solid #dce8fb;
+    transition: .2s;
+}
+
+.alert-card:hover {
+    transform: translateY(-5px);
+}
+
+.alert-card .emoji {
+    font-size: 31px;
+    margin-bottom: 10px;
+}
+
+.alert-card strong {
+    display: block;
+    margin-bottom: 7px;
+}
+
+.alert-card p {
+    font-size: 13px;
+    color: #6075a5;
+}
+
+
+/* =========================================================
+   VERIFICADOR
+========================================================= */
+
+.verifier-section {
+    background: white;
+}
+
+.verificador {
+    max-width: 900px;
+    margin: auto;
+    background: linear-gradient(145deg,#f7f9ff,#ffffff);
+    padding: 42px;
+    border-radius: 28px;
+    box-shadow: 0 18px 45px rgba(24,50,145,.12);
+    border: 2px solid #edf0fa;
+}
+
+.verificador h2 {
+    text-align: center;
+    font-size: 29px;
+    margin-bottom: 8px;
+}
+
+.verificador > p {
+    text-align: center;
+    color: #6075a5;
+    margin-bottom: 25px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 160px;
+    border: 2px solid #dce4f5;
+    border-radius: 17px;
+    padding: 18px;
+    resize: vertical;
+    outline: none;
+    font-size: 16px;
+    color: #172b70;
+    background: white;
+    transition: .2s;
+}
+
+textarea:focus {
+    border-color: #2852f4;
+    box-shadow: 0 0 0 5px rgba(40,82,244,.08);
+}
+
+.verify-button {
+    border: none;
+    background: #ffe01a;
+    color: #10268d;
+    padding: 16px 28px;
+    border-radius: 30px;
+    font-weight: 900;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto 0;
+    transition: .2s;
+}
+
+.verify-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255,211,0,.25);
+}
+
+
+/* Resultado */
+
+.resultado-box {
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 18px;
+    background: #fff9df;
+    border-left: 6px solid #ffd21c;
+    animation: aparecer .35s ease;
+}
+
+.resultado-box h3 {
+    margin-bottom: 10px;
+    color: #a26700;
+}
+
+.resultado-box p {
+    color: #56698f;
+    margin-bottom: 8px;
+}
+
+.resultado-box .boton {
+    background: #2852f4;
+    color: white;
+    text-align: center;
+}
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   PASOS
+========================================================= */
+
+.steps-grid {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 16px;
+}
+
+.step-card {
+    background: white;
+    border: 2px solid #edf0fa;
+    border-radius: 20px;
+    padding: 25px 17px;
+    text-align: center;
+    transition: .25s;
+}
+
+.step-card:hover {
+    transform: translateY(-6px);
+}
+
+.step-number {
+    width: 47px;
+    height: 47px;
+    border-radius: 50%;
+    background: #dff3ff;
+    color: #1751cf;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 14px;
+    font-weight: 900;
+    font-size: 18px;
+}
+
+.step-card h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.step-card p {
+    font-size: 13px;
+    color: #6075a5;
+}
+
+
+/* =========================================================
+   QUIZ
+========================================================= */
+
+.quiz-section {
+    background: #f1edff;
+}
+
+.quiz {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 35px;
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(80,50,180,.08);
+}
+
+.quiz-question {
+    font-size: 21px;
+    font-weight: 800;
+    margin-bottom: 22px;
+    color: #263b99;
+}
+
+.opcion {
+    width: 100%;
+    text-align: left;
+    padding: 16px;
+    margin-bottom: 10px;
+    border: 2px solid #edf0fa;
+    border-radius: 13px;
+    background: #fafbff;
+    color: #263b99;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.opcion:hover {
+    background: #eef3ff;
+    border-color: #8da8ff;
+}
+
+#resultadoQuiz {
+    margin-top: 15px;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   SITUACIÓN
+========================================================= */
+
+.situation-box {
+    max-width: 900px;
+    margin: auto;
+    background: linear-gradient(135deg,#123ac6,#5425d7);
+    color: white;
+    padding: 45px;
+    border-radius: 27px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(42,49,180,.18);
+}
+
+.situation-box h3 {
+    font-size: 27px;
+    margin-bottom: 12px;
+}
+
+.situation-box p {
+    color: #dce5ff;
+    margin-bottom: 25px;
+}
+
+.situation-options {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 12px;
+}
+
+.situation-options button {
+    padding: 15px;
+    border: none;
+    border-radius: 13px;
+    background: white;
+    color: #1935a0;
+    font-weight: 800;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.situation-options button:hover {
+    transform: translateY(-3px);
+}
+
+#respuestaSituacion {
+    margin-top: 20px;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   IMPACTO
+========================================================= */
+
+.impact {
+    background: #10216e;
+    color: white;
+    text-align: center;
+}
+
+.impact .section-title {
+    color: white;
+}
+
+.impact .section-subtitle {
+    color: #d0dcff;
+}
+
+.impact-grid {
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+.impact-card {
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.1);
+}
+
+.impact-number {
+    font-size: 45px;
+    font-weight: 900;
+    color: #ffe01a;
+}
+
+.impact-card p {
+    color: #d3ddff;
+}
+
+
+/* =========================================================
+   CONSEJO FINAL
+========================================================= */
+
+.final-box {
+    max-width: 950px;
+    margin: auto;
+    background: #fff8dc;
+    border-radius: 25px;
+    padding: 40px;
+    border: 2px solid #ffe48a;
+}
+
+.final-box h2 {
+    color: #a26700;
+    margin-bottom: 15px;
+}
+
+.final-box p {
+    color: #5f6780;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    background: #071344;
+    color: #aebcff;
+    text-align: center;
+    padding: 35px 20px;
+    line-height: 1.8;
+}
+
+footer strong {
+    color: white;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:950px) {
+
+    .menu {
+        gap: 15px;
+    }
+
+    .hero-title {
+        font-size: 58px;
+    }
+
+    .hero-art {
+        transform: scale(.8);
+    }
+
+    .feature-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .destacado-container {
+        grid-template-columns: 1fr;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .alert-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .steps-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .impact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media(max-width:700px) {
+
+    nav {
+        padding: 0 5%;
+    }
+
+    .logo {
+        font-size: 28px;
+    }
+
+    .menu a:not(.nav-button) {
+        display: none;
+    }
+
+    .hero-content {
+        padding: 55px 25px;
+        display: block;
+    }
+
+    .hero-text {
+        width: 100%;
+    }
+
+    .hero-title {
+        font-size: 52px;
+    }
+
+    .hero-subtitle {
+        font-size: 23px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-button {
+        text-align: center;
+    }
+
+    .hero-art {
+        display: none;
+    }
+
+    .feature-cards {
+        padding: 25px 18px;
+    }
+
+    .destacado {
+        padding: 45px 20px;
+    }
+
+    .destacado-text h2 {
+        font-size: 32px;
+    }
+
+    .article-card {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .article-image {
+        min-width: 100%;
+    }
+
+    .section {
+        padding: 60px 6%;
+    }
+
+    .section-title {
+        font-size: 30px;
+    }
+
+    .alert-grid,
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .verificador {
+        padding: 25px 20px;
+    }
+
+    .situation-box {
+        padding: 30px 20px;
+    }
+
+    .situation-options {
+        grid-template-columns: 1fr;
+    }
+
 }
 
 </style>
@@ -351,256 +1148,1154 @@
 <body>
 
 
-    <!-- NAVEGACIÓN -->
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
 
-    <nav>
+<nav>
 
-        <div class="logo">
-            VERIFICA
+    <div class="logo">VERIFICA</div>
+
+    <div class="menu">
+
+        <a href="#inicio">Inicio</a>
+
+        <a href="#verificar">Verificar</a>
+
+        <a href="#infodemia">Infodemia</a>
+
+        <a href="#alertas">Señales</a>
+
+        <a href="#quiz">Quiz</a>
+
+        <a href="#verificar" class="nav-button">
+            Empezar →
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<header class="hero" id="inicio">
+
+    <div class="hero-content">
+
+        <div class="hero-text">
+
+            <h1 class="hero-title">
+                VERIFICA
+            </h1>
+
+            <div class="hero-subtitle">
+                Antes de compartir, verifica.
+            </div>
+
+            <p class="hero-description">
+                Una herramienta educativa peruana para aprender
+                a analizar la información en Internet y combatir
+                la infodemia.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#verificar" class="hero-button primary">
+                    Analizar información →
+                </a>
+
+                <a href="#como" class="hero-button secondary">
+                    Aprende a verificar →
+                </a>
+
+            </div>
+
         </div>
 
-        <div class="menu">
-            <a href="#verificar">Verificar</a>
-            <a href="#como">Cómo funciona</a>
-            <a href="#impacto">Nuestro impacto</a>
+
+        <div class="hero-art">
+
+            <div class="speech real">
+                ¿REAL?
+            </div>
+
+            <div class="speech fake">
+                ¿FAKE?
+            </div>
+
+            <div class="speech chat">
+                💬
+            </div>
+
+
+            <div class="laptop">
+
+                <div class="laptop-screen">
+
+                    <div class="screen-image"></div>
+
+                    <div class="screen-line line-one"></div>
+
+                    <div class="screen-line line-two"></div>
+
+                    <div class="screen-line line-three"></div>
+
+                </div>
+
+                <div class="laptop-base"></div>
+
+            </div>
+
+
+            <div class="magnifying-glass">
+
+                <div class="check">
+                    ✓
+                </div>
+
+            </div>
+
+            <div class="shape shape-one"></div>
+
+            <div class="shape shape-two"></div>
+
         </div>
 
-    </nav>
+    </div>
+
+</header>
 
 
-    <!-- PRESENTACIÓN -->
+<!-- =========================================================
+     TRES TARJETAS
+========================================================= -->
 
-    <div class="hero">
+<div class="feature-cards">
 
-        <h1>VERIFICA</h1>
+    <div class="feature-card green">
 
-        <h2>Antes de compartir, verifica.</h2>
+        <div class="feature-icon">
+            🔎
+        </div>
+
+        <h3>Verifica</h3>
 
         <p>
-            Una herramienta creada para ayudarte a analizar
-            la información que encuentras en redes sociales
-            y desarrollar hábitos digitales responsables.
+            Comprueba la información antes de compartirla.
         </p>
+
+        <div class="card-arrow">
+            →
+        </div>
 
     </div>
 
 
-    <!-- VERIFICADOR -->
+    <div class="feature-card purple">
 
-    <div class="verificador" id="verificar">
+        <div class="feature-icon">
+            🧠
+        </div>
 
-        <h2>🔎 ¿Encontraste algo sospechoso?</h2>
+        <h3>Analiza</h3>
 
         <p>
-            Introduce una afirmación, noticia o información
-            que hayas encontrado en Internet.
+            No todo lo que aparece en redes es verdadero.
         </p>
 
+        <div class="card-arrow">
+            →
+        </div>
+
+    </div>
+
+
+    <div class="feature-card red">
+
+        <div class="feature-icon">
+            📢
+        </div>
+
+        <h3>Comparte responsablemente</h3>
+
+        <p>
+            Evita difundir información engañosa.
+        </p>
+
+        <div class="card-arrow">
+            →
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     DESTACADO
+========================================================= -->
+
+<section class="destacado">
+
+    <div class="destacado-container">
+
+        <div class="destacado-text">
+
+            <div class="label">
+                DESTACADO
+            </div>
+
+            <h2>
+                Aprende a detectar
+                la desinformación
+            </h2>
+
+            <p>
+                Explora nuestros recursos, aprende a reconocer
+                señales de alerta y pon en práctica lo que aprendes.
+                La información también se entrena.
+            </p>
+
+        </div>
+
+
+        <div class="article-card">
+
+            <div class="article-image">
+
+                <div class="fake-paper"></div>
+
+            </div>
+
+            <div class="article-content">
+
+                <div class="tag">
+                    Artículo
+                </div>
+
+                <h3>
+                    5 señales de una noticia falsa
+                </h3>
+
+                <p>
+                    Descubre las pistas más comunes que indican
+                    que una información podría ser engañosa.
+                </p>
+
+                <a href="#alertas" class="article-link">
+                    Leer más →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     INFODEMIA
+========================================================= -->
+
+<section class="section" id="infodemia">
+
+    <h2 class="section-title">
+        📰 ¿Qué es la infodemia?
+    </h2>
+
+    <p class="section-subtitle">
+        La infodemia ocurre cuando circula una gran cantidad
+        de información, incluyendo información falsa o engañosa,
+        que dificulta encontrar datos confiables.
+    </p>
+
+
+    <div class="info-grid">
+
+        <div class="info-card">
+
+            <div class="emoji">
+                📱
+            </div>
+
+            <h3>
+                Redes sociales
+            </h3>
+
+            <p>
+                La información puede difundirse rápidamente
+                entre muchas personas.
+            </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="emoji">
+                ⚡
+            </div>
+
+            <h3>
+                Viralidad
+            </h3>
+
+            <p>
+                Una publicación puede alcanzar a muchas personas
+                antes de ser comprobada.
+            </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="emoji">
+                ❓
+            </div>
+
+            <h3>
+                Confusión
+            </h3>
+
+            <p>
+                La gran cantidad de información puede dificultar
+                distinguir fuentes confiables de información engañosa.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SEÑALES
+========================================================= -->
+
+<section class="section alert-section" id="alertas">
+
+    <h2 class="section-title">
+        🚩 Señales de alerta
+    </h2>
+
+    <p class="section-subtitle">
+        Estas características no demuestran por sí solas que una
+        información sea falsa, pero indican que conviene comprobarla.
+    </p>
+
+
+    <div class="alert-grid">
+
+        <div class="alert-card">
+
+            <div class="emoji">❗</div>
+
+            <strong>
+                Título alarmante
+            </strong>
+
+            <p>
+                Busca llamar tu atención mediante miedo o sorpresa.
+            </p>
+
+        </div>
+
+
+        <div class="alert-card">
+
+            <div class="emoji">👤</div>
+
+            <strong>
+                Fuente desconocida
+            </strong>
+
+            <p>
+                No queda claro quién publicó la información.
+            </p>
+
+        </div>
+
+
+        <div class="alert-card">
+
+            <div class="emoji">📅</div>
+
+            <strong>
+                Sin fecha
+            </strong>
+
+            <p>
+                No puedes saber cuándo fue publicada.
+            </p>
+
+        </div>
+
+
+        <div class="alert-card">
+
+            <div class="emoji">📸</div>
+
+            <strong>
+                Imagen dudosa
+            </strong>
+
+            <p>
+                Puede estar fuera de contexto.
+            </p>
+
+        </div>
+
+
+        <div class="alert-card">
+
+            <div class="emoji">🔗</div>
+
+            <strong>
+                Sin evidencia
+            </strong>
+
+            <p>
+                No presenta datos o fuentes verificables.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     VERIFICADOR
+========================================================= -->
+
+<section class="section verifier-section" id="verificar">
+
+    <h2 class="section-title">
+        🔎 Verifica una información
+    </h2>
+
+    <p class="section-subtitle">
+        ¿Encontraste algo sospechoso? Pega aquí la información
+        y prepara una búsqueda para comprobarla.
+    </p>
+
+
+    <div class="verificador">
+
+        <h2>
+            ¿Qué quieres comprobar?
+        </h2>
+
+        <p>
+            Introduce una noticia, afirmación o publicación.
+        </p>
+
+
         <textarea
-    placeholder="Pega aquí la información que quieres verificar..."></textarea>
+            id="informacion"
+            placeholder="Pega aquí la información que quieres verificar..."
+        ></textarea>
 
-<div id="resultado"></div>
 
-        <button class="boton" onclick="verificarInformacion()">
+        <div id="resultado"></div>
+
+
+        <button
+            class="verify-button"
+            onclick="verificarInformacion()"
+        >
             🔍 VERIFICAR INFORMACIÓN
         </button>
 
     </div>
 
-
-    <!-- CÓMO VERIFICAR -->
-
-    <section id="como">
-
-        <h2 class="titulo">
-            Aprende a verificar
-        </h2>
-
-        <p class="subtitulo">
-            Antes de creer o compartir una información,
-            sigue estos cinco pasos.
-        </p>
+</section>
 
 
-        <div class="pasos">
+<!-- =========================================================
+     PASOS
+========================================================= -->
 
-            <div class="paso">
+<section class="section" id="como">
 
-                <div class="numero">1</div>
+    <h2 class="section-title">
+        🧠 Aprende a verificar
+    </h2>
 
-                <h3>Revisa la fuente</h3>
-
-                <p>
-                    Identifica quién publicó la información
-                    y si es una fuente confiable.
-                </p>
-
-            </div>
-
-
-            <div class="paso">
-
-                <div class="numero">2</div>
-
-                <h3>Comprueba la fecha</h3>
-
-                <p>
-                    Una noticia antigua puede estar siendo
-                    presentada como si fuera actual.
-                </p>
-
-            </div>
+    <p class="section-subtitle">
+        Antes de creer o compartir una información,
+        sigue estos cinco pasos.
+    </p>
 
 
-            <div class="paso">
+    <div class="steps-grid">
 
-                <div class="numero">3</div>
+        <div class="step-card">
 
-                <h3>Busca evidencia</h3>
+            <div class="step-number">1</div>
 
-                <p>
-                    Comprueba si la información presenta
-                    datos, pruebas o fuentes verificables.
-                </p>
-
-            </div>
-
-
-            <div class="paso">
-
-                <div class="numero">4</div>
-
-                <h3>Compara</h3>
-
-                <p>
-                    Busca la misma información en otras
-                    fuentes confiables.
-                </p>
-
-            </div>
-
-
-            <div class="paso">
-
-                <div class="numero">5</div>
-
-                <h3>Piensa antes de compartir</h3>
-
-                <p>
-                    Si tienes dudas, detente y verifica
-                    antes de difundirla.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- IMPACTO -->
-
-    <section class="estadisticas" id="impacto">
-
-        <h2 class="titulo">
-            Nuestro impacto
-        </h2>
-
-        <p class="subtitulo">
-            Estas estadísticas nos ayudarán a conocer
-            el alcance de nuestro proyecto.
-        </p>
-
-
-        <div class="numeros">
-
-            <div>
-                <div class="numero-grande">0</div>
-                <div class="numero-texto">
-                    Visitas
-                </div>
-            </div>
-
-
-            <div>
-                <div class="numero-grande">0</div>
-                <div class="numero-texto">
-                    Verificaciones
-                </div>
-            </div>
-
-
-            <div>
-                <div class="numero-grande">0%</div>
-                <div class="numero-texto">
-                    Mejora observada
-                </div>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- CONSEJO -->
-
-    <section>
-
-        <div class="consejo">
-
-            <h3>💡 Recuerda</h3>
+            <h3>
+                Revisa la fuente
+            </h3>
 
             <p>
-                Que una información aparezca muchas veces
-                en redes sociales no significa que sea verdadera.
-                Antes de compartirla, revisa su fuente,
-                comprueba la información y compara diferentes
-                fuentes confiables.
+                Identifica quién publicó la información.
             </p>
 
         </div>
 
-    </section>
+
+        <div class="step-card">
+
+            <div class="step-number">2</div>
+
+            <h3>
+                Comprueba la fecha
+            </h3>
+
+            <p>
+                Una noticia antigua puede presentarse como actual.
+            </p>
+
+        </div>
 
 
-    <!-- PIE DE PÁGINA -->
+        <div class="step-card">
 
-    <footer>
+            <div class="step-number">3</div>
+
+            <h3>
+                Busca evidencia
+            </h3>
+
+            <p>
+                Comprueba si presenta datos o pruebas.
+            </p>
+
+        </div>
+
+
+        <div class="step-card">
+
+            <div class="step-number">4</div>
+
+            <h3>
+                Compara
+            </h3>
+
+            <p>
+                Busca la misma información en otras fuentes.
+            </p>
+
+        </div>
+
+
+        <div class="step-card">
+
+            <div class="step-number">5</div>
+
+            <h3>
+                Piensa antes de compartir
+            </h3>
+
+            <p>
+                Si tienes dudas, detente y verifica.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     QUIZ
+========================================================= -->
+
+<section class="section quiz-section" id="quiz">
+
+    <h2 class="section-title">
+        🎮 Pon a prueba tus conocimientos
+    </h2>
+
+    <p class="section-subtitle">
+        ¿Sabes qué hacer antes de compartir una noticia?
+    </p>
+
+
+    <div class="quiz">
+
+        <div class="quiz-question">
+
+            ¿Qué deberías hacer antes de compartir
+            una noticia que viste en redes sociales?
+
+        </div>
+
+
+        <button
+            class="opcion"
+            onclick="respuestaQuiz(false)"
+        >
+            A. Compartirla porque muchas personas ya la publicaron.
+        </button>
+
+
+        <button
+            class="opcion"
+            onclick="respuestaQuiz(false)"
+        >
+            B. Leer solamente el título.
+        </button>
+
+
+        <button
+            class="opcion"
+            onclick="respuestaQuiz(true)"
+        >
+            C. Compararla con otras fuentes confiables.
+        </button>
+
+
+        <button
+            class="opcion"
+            onclick="respuestaQuiz(false)"
+        >
+            D. Compartirla si coincide con lo que pensamos.
+        </button>
+
+
+        <div id="resultadoQuiz"></div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     QUÉ HARÍAS TÚ
+========================================================= -->
+
+<section class="section">
+
+    <h2 class="section-title">
+        🤔 ¿Qué harías tú?
+    </h2>
+
+    <p class="section-subtitle">
+        Pon a prueba cómo actuarías frente a una información
+        que recibes en redes.
+    </p>
+
+
+    <div class="situation-box">
+
+        <h3>
+            📱 “Mañana se suspenden las clases.
+            ¡Compártelo con todos!”
+        </h3>
 
         <p>
-            VERIFICA — Proyecto ciudadano contra la infodemia
+            No sabes quién publicó el mensaje ni de dónde salió.
+            ¿Qué harías?
         </p>
 
-        <p>
-            Antes de compartir, verifica.
-        </p>
 
-    </footer>
+        <div class="situation-options">
+
+            <button onclick="situacion(false)">
+                📢 Lo comparto inmediatamente
+            </button>
+
+            <button onclick="situacion(false)">
+                👥 Pregunto a mis amigos
+            </button>
+
+            <button onclick="situacion(true)">
+                🔎 Busco información oficial
+            </button>
+
+        </div>
+
+
+        <div id="respuestaSituacion"></div>
+
+    </div>
+
+<!-- ENCUESTA FINAL -->
+<section class="encuesta-section" id="encuesta">
+
+    <div class="encuesta-container">
+
+        <!-- ENCABEZADO -->
+        <div class="encuesta-titulo">
+
+            <span class="mini-etiqueta">📝 TU OPINIÓN CUENTA</span>
+
+            <h2>¿Qué aprendiste con VERIFICA?</h2>
+
+            <p>
+                Ya conociste algunas formas de identificar información
+                dudosa. Ahora queremos conocer tu experiencia.
+            </p>
+
+        </div>
+
+
+        <!-- TARJETA DE ENCUESTA -->
+        <div class="encuesta-card">
+
+            <div class="encuesta-card-header">
+                <div class="encuesta-icono">💬</div>
+
+                <div>
+                    <h3>Encuesta final</h3>
+                    <p>Responde estas preguntas y ayúdanos a evaluar el proyecto.</p>
+                </div>
+            </div>
+
+
+            <!-- GOOGLE FORM -->
+            <div class="google-form">
+
+                <iframe
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSfLPGVpupn3r7xbgecKNbcU11pl6dq5QvbraXd-xgjocLYwIA/viewform?embedded=true"
+                    frameborder="0"
+                    marginheight="0"
+                    marginwidth="0">
+                    Cargando…
+                </iframe>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<style>
+
+/* ==========================
+   ENCUESTA FINAL
+========================== */
+
+.encuesta-section {
+    padding: 100px 20px;
+    background: #f6f8ff;
+}
+
+.encuesta-container {
+    max-width: 900px;
+    margin: auto;
+}
+
+
+/* TITULO */
+
+.encuesta-titulo {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.mini-etiqueta {
+    display: inline-block;
+    background: #ffe45c;
+    color: #172554;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .5px;
+}
+
+.encuesta-titulo h2 {
+    font-size: 42px;
+    color: #172554;
+    margin: 18px 0 12px;
+}
+
+.encuesta-titulo p {
+    max-width: 620px;
+    margin: auto;
+    color: #64748b;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+
+/* TARJETA */
+
+.encuesta-card {
+    background: white;
+    border-radius: 28px;
+    padding: 35px;
+    box-shadow: 0 20px 50px rgba(23, 37, 84, 0.10);
+}
+
+
+/* CABECERA DE TARJETA */
+
+.encuesta-card-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid #edf0f7;
+    margin-bottom: 25px;
+}
+
+.encuesta-icono {
+    width: 55px;
+    height: 55px;
+    background: #eef3ff;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27px;
+}
+
+.encuesta-card-header h3 {
+    margin: 0 0 5px;
+    color: #172554;
+    font-size: 21px;
+}
+
+.encuesta-card-header p {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+}
+
+
+/* GOOGLE FORM */
+
+.google-form {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.google-form iframe {
+    display: block;
+    width: 100%;
+    height: 950px;
+    border: none;
+}
+
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    .encuesta-section {
+        padding: 70px 15px;
+    }
+
+    .encuesta-titulo h2 {
+        font-size: 32px;
+    }
+
+    .encuesta-titulo p {
+        font-size: 15px;
+    }
+
+    .encuesta-card {
+        padding: 20px;
+        border-radius: 22px;
+    }
+
+    .encuesta-card-header {
+        align-items: flex-start;
+    }
+
+    .google-form iframe {
+        height: 1050px;
+    }
+
+}
+
+</style>
 
 <script>
 
+document.getElementById("encuestaForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    document.getElementById("encuestaForm").style.display = "none";
+
+    document.getElementById("mensajeEncuesta").style.display = "block";
+
+});
+
+</script>
+
+<!-- =========================================================
+     CONSEJO FINAL
+========================================================= -->
+
+<section class="section">
+
+    <div class="final-box">
+
+        <h2>
+            💡 DETENTE. PIENSA. VERIFICA.
+        </h2>
+
+        <p>
+
+            <strong>1.</strong> ¿Quién publicó esto?
+
+            <br>
+
+            <strong>2.</strong> ¿Cuándo fue publicado?
+
+            <br>
+
+            <strong>3.</strong> ¿De dónde salió la información?
+
+            <br>
+
+            <strong>4.</strong> ¿Otras fuentes dicen lo mismo?
+
+            <br>
+
+            <strong>5.</strong> ¿Tengo suficiente evidencia para compartirlo?
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <p>
+        <strong>VERIFICA</strong> — Proyecto ciudadano contra la infodemia
+    </p>
+
+    <p>
+        Antes de compartir, verifica.
+    </p>
+
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+
+/* =========================================================
+   VERIFICADOR
+========================================================= */
+
 function verificarInformacion() {
 
-    const resultado = document.getElementById("resultado");
+    const informacion =
+        document.getElementById("informacion").value.trim();
+
+    const resultado =
+        document.getElementById("resultado");
+
+
+    if (informacion === "") {
+
+        resultado.innerHTML = `
+
+            <div class="resultado-box">
+
+                <h3>
+                    ⚠️ Falta información
+                </h3>
+
+                <p>
+                    Escribe o pega una noticia, afirmación
+                    o información que quieras comprobar.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    const consulta =
+        informacion +
+        " verdadero o falso fuentes confiables";
+
+
+    const google =
+        "https://www.google.com/search?q=" +
+        encodeURIComponent(consulta);
+
 
     resultado.innerHTML = `
+
         <div class="resultado-box">
-            <h3>🟡 Necesita verificación</h3>
+
+            <h3>
+                🔎 Analiza esta información
+            </h3>
 
             <p>
-                Esta información debe comprobarse antes de compartirla.
+                Hemos preparado una búsqueda para ayudarte
+                a comprobar la afirmación.
             </p>
 
             <p>
-                Revisa la fuente, la fecha y compara la información
-                con otras fuentes confiables.
+                Google buscará información relacionada.
+                Compara los resultados y revisa las fuentes
+                antes de sacar una conclusión.
             </p>
+
+
+            <a
+                href="${google}"
+                target="_blank"
+                class="boton"
+                style="
+                    display:block;
+                    text-decoration:none;
+                    text-align:center;
+                    margin-top:20px;
+                    background:#2852f4;
+                    color:white;
+                    padding:15px;
+                    border-radius:30px;
+                    font-weight:800;
+                "
+            >
+
+                🔎 BUSCAR Y COMPARAR
+
+            </a>
+
+
+            <p style="margin-top:20px;">
+
+                💡 <strong>Recuerda:</strong>
+
+                revisa quién publicó la información,
+                la fecha y si otras fuentes confiables
+                dicen lo mismo.
+
+            </p>
+
         </div>
+
     `;
 
 }
 
+
+/* =========================================================
+   BORRAR RESULTADO AL BORRAR TEXTO
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    const campo =
+        document.getElementById("informacion");
+
+    const resultado =
+        document.getElementById("resultado");
+
+
+    campo.addEventListener("input", function() {
+
+        if (campo.value.trim() === "") {
+
+            resultado.innerHTML = "";
+
+        }
+
+    });
+
+});
+
+
+/* =========================================================
+   QUIZ
+========================================================= */
+
+function respuestaQuiz(correcta) {
+
+    const resultado =
+        document.getElementById("resultadoQuiz");
+
+
+    if (correcta) {
+
+        resultado.innerHTML =
+            "✅ ¡Correcto! Comparar la información con otras fuentes ayuda a comprobarla antes de compartirla.";
+
+        resultado.style.color = "#159447";
+
+    } else {
+
+        resultado.innerHTML =
+            "❌ No exactamente. Lo recomendable es comprobar la información antes de compartirla.";
+
+        resultado.style.color = "#d12d45";
+
+    }
+
+}
+
+
+/* =========================================================
+   SITUACIÓN
+========================================================= */
+
+function situacion(correcta) {
+
+    const respuesta =
+        document.getElementById("respuestaSituacion");
+
+
+    if (correcta) {
+
+        respuesta.innerHTML =
+            "✅ ¡Muy bien! Antes de compartir un aviso, comprueba si existe información oficial que confirme el mensaje.";
+
+        respuesta.style.color = "#baffd8";
+
+    } else {
+
+        respuesta.innerHTML =
+            "💡 Antes de compartirlo, primero comprueba si existe información oficial que confirme el aviso.";
+
+        respuesta.style.color = "#ffe99a";
+
+    }
+
+}
+
 </script>
+
 
 </body>
 
